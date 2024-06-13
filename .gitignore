@@ -1,0 +1,28 @@
+### Lasal Class binary files to ignore ###
+*.lob
+*.lcb
+*.ldi
+*.bin
+*.lock
+*.lba
+*.mme
+*.txt
+
+
+### Lasal Class folders to ignore ###
+ProjectInternal
+
+### Lasal Class automatic generated file to ignore ###
+MaeExp.txt
+MaeExp.xml
+
+### Lasal Screen folders to ignore ###
+Runtime
+Language
+BAK
+!Rtv.txt
+
+### Windows generated files ###
+Thumbs.db
+
+!/main-plc/Class/OPC_UA*/**

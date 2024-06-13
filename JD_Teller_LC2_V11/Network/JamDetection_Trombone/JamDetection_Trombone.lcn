@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Network Name="JamDetection_Trombone" Revision="0.0">
+	<!-- List of Components in this network -->
+	<Components>
+		<Object
+			Name       = "Call_JAM_Window1"
+			GUID       = "{D56732B4-9211-43A1-80E2-96DF95F4CBA5}"
+			Class      = "Call_JAM_Window"
+			Position   = "(60,2820)"
+			Visualized = "true">
+			<Channels>
+				<Server Name="ClassSvr"/>
+			</Channels>
+		</Object>
+		<Object
+			Name           = "JAMDETECT1"
+			GUID           = "{113E56FC-8C85-4AD4-8587-92C3358AAFB5}"
+			Class          = "JAMDETECT_Teller"
+			Position       = "(870,1950)"
+			Visualized     = "true"
+			CyclicTime     = "100 ms"
+			BackgroundTime = "100 ms"
+			CyclicIndex    = "1073742080">
+			<Channels>
+				<Server Name="ClassSvr"/>
+				<Server Name="HWTimer"/>
+				<Server Name="JAM"/>
+				<Server Name="Jam_Count"/>
+				<Server Name="Jam_ID_Section"/>
+				<Server Name="Jam_ID_Unit"/>
+				<Server Name="Jam_RESET"/>
+				<Server Name="JamReset"/>
+				<Client Name="cJam_Trombone"/>
+				<Client Name="cJamLSE"/>
+				<Client Name="cJamReset"/>
+				<Client Name="Jam01_01"/>
+				<Client Name="Jam01_02"/>
+				<Client Name="Jam2HW"/>
+				<Client Name="Jam2Visu" Value="0"/>
+				<Client Name="JamKlok"/>
+				<Client Name="JamResetC001" Value="0"/>
+				<Client Name="JamResetC002"/>
+				<Client Name="JamResetC003"/>
+				<Client Name="JamResetC004"/>
+				<Client Name="JamResetC005"/>
+				<Client Name="JamResetTanabe"/>
+			</Channels>
+		</Object>
+		<Object
+			Name       = "JAMDETECT_ALARM"
+			GUID       = "{5C84441F-DFE2-42C5-AD74-9497D60AE1DE}"
+			Class      = "_AlarmX3Para"
+			Position   = "(1530,2070)"
+			Visualized = "true">
+			<Channels>
+				<Server Name="ClassSvr"/>
+				<Client Name="Acknow"/>
+				<Client Name="Config" Value="0"/>
+				<Client Name="Group"/>
+				<Client Name="Para1"/>
+				<Client Name="Para2"/>
+				<Client Name="Para3"/>
+			</Channels>
+			<!-- List of Networks in this component -->
+			<Networks>
+				<Network>
+					<!-- List of Components in this network -->
+					<Components>
+						<Object Name="_base" GUID="{FF1586E3-7510-4496-B4A8-3A308EFCD780}" Class="_AlarmX0Para">
+							<Channels>
+								<Server Name="ClassSvr"/>
+								<Client Name="Acknow"/>
+								<Client Name="Config" Value="0"/>
+								<Client Name="Group"/>
+							</Channels>
+						</Object>
+					</Components>
+					<Connections>
+					</Connections>
+				</Network>
+			</Networks>
+		</Object>
+		<Object
+			Name        = "S11_Jamdetection_TeachIn_01"
+			GUID        = "{37227142-0546-4403-87E0-E87056BA8C11}"
+			Class       = "Jamdetection_TeachIn_Teller"
+			Position    = "(870,300)"
+			Visualized  = "true"
+			RealTime    = "1 ms"
+			CyclicTime  = "50 ms"
+			RealIndex   = "1073742080"
+			CyclicIndex = "1073742080">
+			<Channels>
+				<Server Name="ClassSvr"/>
+				<Server Name="CopyTeachIn"/>
+				<Server Name="iEncDiv"/>
+				<Server Name="iEncMulti"/>
+				<Server Name="JamPauze"/>
+				<Server Name="MaxLengthBox"/>
+				<Server Name="MinJamSpeed"/>
+				<Server Name="MinSpot"/>
+				<Server Name="Nr_Of_JamSensors"/>
+				<Server Name="oJamdetection"/>
+				<Server Name="oSpeed"/>
+				<Server Name="ResetJam"/>
+				<Server Name="Sectie"/>
+				<Server Name="SectieNrInMachine"/>
+				<Server Name="SectieType"/>
+				<Server Name="sExtraBox"/>
+				<Server Name="SimSpeed"/>
+				<Server Name="Simulator"/>
+				<Server Name="TeachIn"/>
+				<Client Name="c_JamData"/>
+				<Client Name="c_SectieType" Value="11"/>
+				<Client Name="cJamDetect"/>
+				<Client Name="cJamDetect2HW" Value="0"/>
+				<Client Name="cJamDetectSignal"/>
+				<Client Name="cJamReset" Value="0"/>
+				<Client Name="cSensor_01"/>
+				<Client Name="cSensor_02"/>
+				<Client Name="cSensor_03"/>
+				<Client Name="cSimpuls"/>
+				<Client Name="iEncoder"/>
+			</Channels>
+		</Object>
+		<Object
+			Name       = "S11_RAM_Jamdetection_TeachIn_01"
+			GUID       = "{4C0AE6AC-160E-4756-943F-FCD90E4A3DD4}"
+			Class      = "RAMex"
+			Position   = "(90,300)"
+			Visualized = "true">
+			<Channels>
+				<Server Name="m_udLength"/>
+				<Client Name="MultiTask"/>
+				<Client Name="ThreadSafe" Value="0"/>
+				<Client Name="UseFile"/>
+			</Channels>
+			<!-- List of Networks in this component -->
+			<Networks>
+				<Network>
+					<!-- List of Components in this network -->
+					<Components>
+						<Object Name="_base" GUID="{69FA3C23-B049-4F83-B4BC-D30F993C8C98}" Class="MerkerEx">
+							<Channels>
+								<Server Name="m_udLength"/>
+								<Client Name="ThreadSafe"/>
+							</Channels>
+						</Object>
+					</Components>
+					<Connections>
+					</Connections>
+				</Network>
+			</Networks>
+		</Object>
+		<Object
+			Name            = "S11_VisuJamdetect_01"
+			GUID            = "{F21B608D-EFD4-4487-9E2A-4C707D6808BE}"
+			Class           = "Visu_Jam"
+			Position        = "(1920,300)"
+			Visualized      = "true"
+			BackgroundTime  = "100 ms"
+			BackgroundIndex = "1073742080">
+			<Channels>
+				<Server Name="ClassSvr"/>
+				<Server Name="JamBoxLength"/>
+				<Server Name="oJamdetect"/>
+				<Server Name="OnOff"/>
+				<Server Name="oSensorHW"/>
+				<Server Name="SensorNrInMachine"/>
+				<Server Name="Status"/>
+				<Server Name="TeachIn_Length"/>
+				<Client Name="c_JamData"/>
+				<Client Name="c_SensorNr" Value="1"/>
+			</Channels>
+		</Object>
+		<Object
+			Name            = "S11_VisuJamdetect_02"
+			GUID            = "{4E9B6DF2-4AF2-4FE6-BCDA-BF31D33954D1}"
+			Class           = "Visu_Jam"
+			Position        = "(1920,930)"
+			Visualized      = "true"
+			BackgroundTime  = "100 ms"
+			BackgroundIndex = "1073742080">
+			<Channels>
+				<Server Name="ClassSvr"/>
+				<Server Name="JamBoxLength"/>
+				<Server Name="oJamdetect"/>
+				<Server Name="OnOff"/>
+				<Server Name="oSensorHW"/>
+				<Server Name="SensorNrInMachine"/>
+				<Server Name="Status"/>
+				<Server Name="TeachIn_Length"/>
+				<Client Name="c_JamData"/>
+				<Client Name="c_SensorNr" Value="2"/>
+			</Channels>
+		</Object>
+		<Object
+			Name            = "S11_VisuJamdetect_03"
+			GUID            = "{8CDF8C5E-70F6-4F0B-AF5E-C26791F158D5}"
+			Class           = "Visu_Jam"
+			Position        = "(1920,1560)"
+			Visualized      = "true"
+			BackgroundTime  = "100 ms"
+			BackgroundIndex = "1073742080">
+			<Channels>
+				<Server Name="ClassSvr"/>
+				<Server Name="JamBoxLength"/>
+				<Server Name="oJamdetect"/>
+				<Server Name="OnOff"/>
+				<Server Name="oSensorHW"/>
+				<Server Name="SensorNrInMachine"/>
+				<Server Name="Status"/>
+				<Server Name="TeachIn_Length"/>
+				<Client Name="c_JamData"/>
+				<Client Name="c_SensorNr" Value="3"/>
+			</Channels>
+		</Object>
+		<Object
+			Name            = "Visu_TeachIn_Jamdetect"
+			GUID            = "{D3F8D339-2286-4FBE-9410-6C47A41372DF}"
+			Class           = "Signal_Splitter_BG_Teller"
+			Position        = "(870,1710)"
+			Visualized      = "true"
+			BackgroundTime  = "100 ms"
+			BackgroundIndex = "1073742080">
+			<Channels>
+				<Server Name="ClassSvr"/>
+				<Server Name="WriteValue"/>
+				<Client Name="c_WriteValue01"/>
+			</Channels>
+		</Object>
+	</Components>
+	<Comments>
+	</Comments>
+	<!-- List of Connections in this network -->
+	<Connections>
+		<Connection Source="S11_Jamdetection_TeachIn_01.c_JamData" Destination="S11_RAM_Jamdetection_TeachIn_01.m_udLength" Vertices="(870,390),(390,390),"/>
+		<Connection Source="S11_VisuJamdetect_01.c_JamData" Destination="S11_RAM_Jamdetection_TeachIn_01.m_udLength" Vertices="(1920,390),(1680,390),(1680,240),(780,240),(780,390),(390,390),"/>
+		<Connection Source="S11_Jamdetection_TeachIn_01.cJamDetect2HW" Destination="JD_OR1.In2"/>
+		<Connection Source="S11_VisuJamdetect_02.c_JamData" Destination="S11_RAM_Jamdetection_TeachIn_01.m_udLength" Vertices="(1920,1020),(1680,1020),(1680,240),(780,240),(780,390),(390,390),"/>
+		<Connection Source="S11_Jamdetection_TeachIn_01.iEncoder" Destination="CIO011_IM1.Encoder"/>
+		<Connection Source="S11_VisuJamdetect_03.c_JamData" Destination="S11_RAM_Jamdetection_TeachIn_01.m_udLength" Vertices="(1920,1650),(1680,1650),(1680,240),(780,240),(780,390),(390,390),"/>
+		<Connection Source="JAMDETECT1.Jam2Visu" Destination="JAMDETECT_ALARM.ClassSvr" Vertices="(870,2820),(780,2820),(780,2880),(1860,2880),(1860,2160),(1830,2160),"/>
+		<Connection Source="S11_Jamdetection_TeachIn_01.cSensor_03" Destination="CIO011_IM1.Input3"/>
+		<Connection Source="JAMDETECT_ALARM.Para1" Destination="JAMDETECT1.Jam_ID_Section" Vertices="(1530,2340),(1396,2340),"/>
+		<Connection Source="JAMDETECT_ALARM.Para2" Destination="JAMDETECT1.Jam_ID_Unit" Vertices="(1530,2400),(1396,2400),"/>
+		<Connection Source="JAMDETECT_ALARM.Para3" Destination="JAMDETECT1.Jam_Count" Vertices="(1530,2460),(1396,2460),"/>
+		<Connection Source="JAMDETECT1.cJamReset" Destination="S11_Jamdetection_TeachIn_01.ResetJam" Vertices="(870,2040),(840,2040),(840,1920),(1560,1920),(1560,1290),(1426,1290),"/>
+		<Connection Source="JAMDETECT1.JamResetTanabe" Destination="CIO011_IM1.Input6"/>
+		<Connection Source="JAMDETECT1.JamKlok" Destination="SerSend1.Jamdetect"/>
+		<Connection Source="Visu_TeachIn_Jamdetect.c_WriteValue01" Destination="S11_Jamdetection_TeachIn_01.TeachIn" Vertices="(870,1800),(840,1800),(840,1680),(1530,1680),(1530,1350),(1426,1350),"/>
+		<Connection Source="JAMDETECT1.cJam_Trombone" Destination="S11_RAM_Jamdetection_TeachIn_01.m_udLength" Vertices="(870,2100),(510,2100),(510,390),(390,390),"/>
+		<Connection Source="S11_Jamdetection_TeachIn_01.cSensor_01" Destination="CIO011_IM1.Input4"/>
+		<Connection Source="S11_Jamdetection_TeachIn_01.cSensor_02" Destination="CIO011_IM1.Input5"/>
+		<Connection Source="JAMDETECT1.cJamLSE" Destination="Call_JAM_Window1.ClassSvr" Vertices="(870,2760),(720,2760),(720,2910),(706,2910),"/>
+	</Connections>
+	<!-- Headerfiles -->
+	<Options>
+	</Options>
+</Network>

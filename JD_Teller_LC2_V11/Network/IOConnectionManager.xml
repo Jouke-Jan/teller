@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<IOConnectionManager Version="2" Detail="0" PLC="">
+	<!-- List of Entries -->
+	<Entry Name="**IOCONN_EMPTY**" GUID="{286BC701-6CF4-4E66-BC54-9ADED7E38FB4}" Objectsize="284">
+		<!-- List of Connections -->
+		<IOConnections>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Encoder" ObjClt="TellerClass1" Client="iEncoder" IOI="Input" Type="Analog" SortIndex="0" KeyName="000000" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Input3" ObjClt="TellerClass1" Client="iSensorSTR" IOI="Input" Type="Digital" SortIndex="1" KeyName="000001" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Input4" ObjClt="TellerClass1" Client="iSensorL" IOI="Input" Type="Digital" SortIndex="2" KeyName="000002" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Input5" ObjClt="TellerClass1" Client="iSensorR" IOI="Input" Type="Digital" SortIndex="3" KeyName="000003" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Input3" ObjClt="S11_Jamdetection_TeachIn_01" Client="cSensor_03" IOI="Input" Type="Digital" SortIndex="6" KeyName="000004" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Encoder" ObjClt="S11_Jamdetection_TeachIn_01" Client="iEncoder" IOI="Input" Type="Analog" SortIndex="7" KeyName="000005" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Output2" ObjClt="TellerClass1" Client="oHeadnr03" IOI="Output" Type="Digital" SortIndex="8" KeyName="000006" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Output3" ObjClt="TellerClass1" Client="oHeadnr05" IOI="Output" Type="Digital" SortIndex="9" KeyName="000007" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Output4" ObjClt="TellerClass1" Client="oHeadnr01" IOI="Output" Type="Digital" SortIndex="10" KeyName="000008" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Output5" ObjClt="TellerClass1" Client="oHeadnr02" IOI="Output" Type="Digital" SortIndex="11" KeyName="000009" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Output6" ObjClt="JD_OR1" Client="Out" IOI="Output" Type="Digital" SortIndex="12" KeyName="000010" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Input4" ObjClt="S11_Jamdetection_TeachIn_01" Client="cSensor_01" IOI="Input" Type="Digital" SortIndex="13" KeyName="000011" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Encoder" ObjClt="Encoder_Inmeten1" Client="cEncoder" IOI="Input" Type="Analog" SortIndex="14" KeyName="000012" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Input5" ObjClt="S11_Jamdetection_TeachIn_01" Client="cSensor_02" IOI="Input" Type="Digital" SortIndex="15" KeyName="000013" Advanced="0"/>
+			<IOConnection ObjSrv="CIV5211" Server="Com1" ObjClt="SerSend1" Client="Ser" IOI="Interface" Type="Serial" SortIndex="21" KeyName="000014" Advanced="0"/>
+			<IOConnection ObjSrv="CIV5211" Server="Com2" ObjClt="Read_serial1" Client="RxTx" IOI="Interface" Type="Serial" SortIndex="22" KeyName="000015" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Input6" ObjClt="JAMDETECT1" Client="JamResetTanabe" IOI="Input" Type="Digital" SortIndex="23" KeyName="000016" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Output1" ObjClt="TellerClass1" Client="oHeadnr04" IOI="Output" Type="Digital" SortIndex="24" KeyName="000017" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="AO" ObjClt="TellerClass1" Client="cAnalogSpeedOut" IOI="Output" Type="Analog" SortIndex="25" KeyName="000018" Advanced="0"/>
+			<IOConnection ObjSrv="CIO011_IM1" Server="Output7" ObjClt="TellerClass1" Client="cExtBoxCount" IOI="Output" Type="Digital" SortIndex="26" KeyName="000019" Advanced="0"/>
+		</IOConnections>
+	</Entry>
+	<!-- List of Folders -->
+</IOConnectionManager>

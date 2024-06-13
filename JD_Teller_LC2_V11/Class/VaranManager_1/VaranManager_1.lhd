@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<HWClassInfo>
+	<Class Name="VaranManager_1" NeedClasses="HwControl" SingleObject="VaranManager">
+    <Uplink Name="VaranManager" Channel="To_HwControl" BusType="HWCONTROL_VM"/>
+    <Downlink Name="VaranOut_1" BusType="VARAN" Port="0" />
+    <Property Name="Varan Manager Time" Channel="VaranManagerTime" Desc="realtime time in ns (default: 1000000), as Initvalue" Editor="EditNumber:Signed;Dec" />
+    <Property Name="Prevent Manager Error" Channel="PreventManagerError" Desc="0 = normal triggering of a manager error, 1 = prevents a manager error " Editor="Combo:0=Activate VaranManagerError;1=Deactivate VaranManagerError (System will not halt on Error)" />
+    <Property Name="Iso Start Point" Channel="IsoStartPoint" Desc="% of VaranManagerTime [1..99]" Editor="Range:1..99;Empty" />
+    <Property Name="IRQ TaskTime" Channel="IRQTaskTime" Desc="IRQ Task Time in ns, has to be a multiple of VaranManagerTime" Editor="EditNumber:Signed;Dec" />
+    <Property Name="Is Also Client" Channel="IsAlsoClient" Desc="set if manager is also a client (VMC)" Editor="Combo:0=Is no Client;1=Is also Client" />
+    <Property Name="Superior System Time" Channel="SuperiorSystemTime" Desc="varan time of superior system in ns, has to be a multiple of VaranManagerTime" Editor="EditNumber:Signed;Dec" />
+
+<Script Name="VaranManager_1">
+  <Parameter Name="PayloadFrame" Type="Client" Channel="PayloadFrame" Desc="" />
+  <Parameter Name="SplitRdWr" Type="Client" Channel="SplitRdWr" Desc="" />
+  <Parameter Name="ReadWriteDoSeperate2" Type="Client" Channel="ReadWriteDoSeperate2" Desc="" />
+  
+<Code>
+def compPre_VaranManager_1(element, parameters):
+  parameters['PayloadFrame'] = element['options']['PayloadFrame']
+  parameters['SplitRdWr'] = element['options']['SplitRdWr']
+  
+def compPost_VaranManager_1(element, parameters):
+  if element['options']['PayloadFrame'] != 0:
+    print parameters['PayloadFrame']
+    if element['options']['SplitRdWr'] != 0:
+      print parameters['SplitRdWr']
+    else:
+      print parameters['SplitRdWr']
+  else:
+    print parameters['PayloadFrame'] 
+    
+</Code>
+</Script>
+
+</Class>
+</HWClassInfo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<HWClassInfo>
+<HWDevice 
+	ModuleID="0"
+	SubModuleID="0"
+	ModType="OnboardIO">	
+	<Types>
+		<Device Name="ETV0551-IO" ClassName="ETV0551_IOs" DisplayGroup="Digital" Desc="ETV0551"/>
+	</Types>
+</HWDevice>
+<Class Name="ETV0551_IOs">
+	<Uplink Name="HwControl" Channel="To_HwControl" BusType="OnBoardIO"/>
+  <Input Name="Digital Input 1"	Channel="Input1" Type="Digital" Desc="Shows the status of the respective input."> </Input>
+  <Input Name="Digital Input 2"	Channel="Input2" Type="Digital" Desc="Shows the status of the respective input."> </Input>
+  <Input Name="Digital Input 3"	Channel="Input3" Type="Digital" Desc="Shows the status of the respective input."> </Input>
+  <Input Name="Digital Input 4"	Channel="Input4" Type="Digital" Desc="Shows the status of the respective input."> </Input>
+  <Input Name="Digital Input 5"	Channel="Input5" Type="Digital" Desc="Shows the status of the respective input."> </Input>
+  <Input Name="Digital Input 6"	Channel="Input6" Type="Digital" Desc="Shows the status of the respective input."> </Input>
+  <Input Name="Digital Input 7"	Channel="Input7" Type="Digital" Desc="Shows the status of the respective input."> </Input>
+  <Input Name="Digital Input 8"	Channel="Input8" Type="Digital" Desc="Shows the status of the respective input."> </Input>
+  <Output Name="Digital Output 1"		Channel="Output1" Type="Digital" Desc="By writing to this server, the specified output can be controlled."> </Output>
+  <Output Name="Digital Output 2"		Channel="Output2" Type="Digital" Desc="By writing to this server, the specified output can be controlled."> </Output>
+  <Output Name="Digital Output 3"		Channel="Output3" Type="Digital" Desc="By writing to this server, the specified output can be controlled."> </Output>
+  <Output Name="Digital Output 4"		Channel="Output4" Type="Digital" Desc="By writing to this server, the specified output can be controlled."> </Output>
+  <Output Name="Digital Output 5"		Channel="Output5" Type="Digital" Desc="By writing to this server, the specified output can be controlled."> </Output>
+  <Output Name="Digital Output 6"		Channel="Output6" Type="Digital" Desc="By writing to this server, the specified output can be controlled."> </Output>
+  <Output Name="Digital Output 7"		Channel="Output7" Type="Digital" Desc="By writing to this server, the specified output can be controlled."> </Output>
+  <Output Name="Digital Output 8"		Channel="Output8" Type="Digital" Desc="By writing to this server, the specified output can be controlled."> </Output>
+  <Input Name="Inputs Byte"	Channel="InputByte"  Desc="Shows the status of all inputs." Type="Analog"/>
+  <Output Name="Outputs Byte"	Channel="OutputByte"  Type="Analog" Desc="By writing to this server, all outputs can be controlled."/>
+  <IOState Name="State" Channel="State" Desc="0..Everything is OK&#13;&#10;-1..Failed to initialize OS-Interface&#13;&#10;-2..IO-Device not available&#13;&#10;-3..Failed to login to HwControl" Type="Analog" />
+</Class>
+</HWClassInfo>

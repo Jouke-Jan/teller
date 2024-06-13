@@ -1,0 +1,175 @@
+<?xml version="1.0" ?>
+<HWClassInfo>
+<HWDevice ModuleID="0x1C" SubModuleID="0x1" ModType="M_CDIAS" Desc="">	
+	<Types>
+		<Device Name="CIO011" ClassName="CIO011_IM" DisplayGroup="Mixed"/>	
+	</Types>
+</HWDevice>
+<Class Name="CIO011_IM" Path="Special;Mix">
+  <Uplink Name="MasterConnect" BusType="CDIAS" PlaceName="Place" Desc="This client is used to communicate with the (DiasMasterC) &#13;&#10;hardware class and
+   must therefore be connected to its (Control) server. &#13;&#10;More information can be found in the (DiasMasterC) documentation."/>
+  <Input Name="Analog Input 1" Channel="AI1" Desc="Analog input 1. input read over the read() function." Type="Analog">
+    <Property Name="Bias" Channel="AI1_CBias" Desc="The range of displayed values is set using this client" Editor="EditNumber:Signed;Dec" />
+    <Property Name="Invert" Channel="AI1_CInvert" Desc="Inverts each analog input (0: normal, 1: inverted) as the Initial value." Editor="Combo:0=Normal;1=Invert" />
+    <Property Name="Scale" Channel="AI1_CScale" Desc="The range of displayed values is set using this client. " Editor="EditNumber:Signed;Dec" />
+    <Property Name="Type of Channel" Channel="AI1_TypeofChannel" Desc="0 = Pot, 1 = Volt" Editor="Combo:0=Potentiometer;1=Volt" />
+  </Input>
+  <Input Name="Analog Input 2" Channel="AI2" Desc="Analog input 2. input read over the read() function." Type="Analog">
+    <Property Name="Bias" Channel="AI2_CBias" Desc="The range of displayed values is set using this client" Editor="EditNumber:Signed;Dec" />
+    <Property Name="Invert" Channel="AI2_CInvert" Desc="Inverts each analog input (0: normal, 1: inverted) as the Initial value." Editor="Combo:0=Normal;1=Invert" />
+    <Property Name="Scale" Channel="AI2_CScale" Desc="The range of displayed values is set using this client." Editor="EditNumber:Signed;Dec" />
+    <Property Name="Type of Channel" Channel="AI2_TypeofChannel" Desc="0 = Pot, 1 = Volt" Editor="Combo:0=Potentiometer;1=Volt" />
+  </Input>
+  <Output Name="Analog Output" Channel="AO" Desc="Analog output. Output set over write()." Type="Analog">
+    <Property Name="Bias" Channel="AO_CBias" Desc=" Negative offset value in per mill of the maximum value (scale),&#13;&#10;
+    e.g.: a value of 1000 corresponds to an offset of (scale*(-1)) as initialization values." Editor="EditNumber:Signed;Dec" />
+    <Property Name="Invert" Channel="AO_CInvert" Desc="Inverts each analog input (0: normal, 1: inverted) as the Initial value." Editor="Combo:0=Normal;1=Invert" />
+    <Property Name="Scale" Channel="AO_CScale" Desc="The range of displayed values is set using this client." Editor="EditNumber:Signed;Dec" />
+  </Output>
+  <Input Name="Counter1" Channel="Counter1"  Type="Analog" Desc="Count pos. edges of input 1 if CounterMode1 and 2 Not equal to 0"/>
+  <Input Name="Counter2" Channel="Counter2"  Type="Analog" Desc="Counts pos.edges of input 2 if CounterMode1 and 2 = 1" />
+  <Input Name="Encoder" Channel="Encoder" Desc="Shows the encoder position if CounterMode1and2 = 2 | 3 (2 = gating 1 times | 3 = gating 4 times)" Type="Analog" />
+  <Input Name="Digital Input 1" Channel="Input1"  Type="Digital" Desc="Digital input 1, input status queried over read() &#13;&#10; 5 ms hardware filter">
+    <Property Name="Invert" Channel="InvertInput1" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Input>
+  <Input Name="Digital Input 2" Channel="Input2"  Type="Digital" Desc="Digital input 2, input status queried over read().&#13;&#10; 5 ms hardware filter">
+    <Property Name="Invert" Channel="InvertInput2" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Input>
+  <Input Name="Digital Input 3" Channel="Input3"  Type="Digital" Desc="Digital input 3, input status queried over read().&#13;&#10; 5 ms hardware filter">
+    <Property Name="Invert" Channel="InvertInput3" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Input>
+  <Input Name="Digital Input 4" Channel="Input4"  Type="Digital" Desc="Digital input 4, input status queried over read().&#13;&#10; 5 ms hardware filter">
+    <Property Name="Invert" Channel="InvertInput4" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Input>
+  <Input Name="Digital Input 5" Channel="Input5"  Type="Digital" Desc="Digital input 5, input status queried over read().&#13;&#10; 5 ms hardware filter">
+    <Property Name="Invert" Channel="InvertInput5" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Input>
+  <Input Name="Digital Input 6" Channel="Input6"  Type="Digital" Desc="Digital input 6, input status queried over read().&#13;&#10; 5 ms hardware filter">
+    <Property Name="Invert" Channel="InvertInput6" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Input>
+  <Input Name="Digital Input 7" Channel="Input7" Type="Digital" Desc="Digital input 7, input status queried over read().&#13;&#10; 5 ms hardware filter">
+    <Property Name="Invert" Channel="InvertInput7" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Input>
+  <Input Name="Digital Input 8" Channel="Input8" Type="Digital" Desc="Digital input 8, input status queried over read().&#13;&#10; 5 ms hardware filter">
+    <Property Name="Invert" Channel="InvertInput8" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Input>
+  <Input Name="Input Byte" Channel="InputByte" Desc="The digital inputs are shown in an 8-bit field, in this server." Type="Analog" />
+  <Output Name="Digital Output 1" Channel="Output1" Desc="Digital output 1; output set over write()" Type="Digital">
+    <Property Name="Invert" Channel="InvertOutput1" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Output>
+  <Output Name="Digital Output 2" Channel="Output2" Desc="Digital output 2; output set over write()" Type="Digital">
+    <Property Name="Invert" Channel="InvertOutput2" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Output>
+  <Output Name="Digital Output 3" Channel="Output3" Desc="Digital output 3; output set over write()" Type="Digital">
+    <Property Name="Invert" Channel="InvertOutput3" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Output>
+  <Output Name="Digital Output 4" Channel="Output4" Desc="Digital output 4; output set over write()" Type="Digital">
+    <Property Name="Invert" Channel="InvertOutput4" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Output>
+  <Output Name="Digital Output 5" Channel="Output5" Desc="Digital output 5; output set over write()" Type="Digital">
+    <Property Name="Invert" Channel="InvertOutput5" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Output>
+  <Output Name="Digital Output 6" Channel="Output6" Desc="Digital output 6; output set over write()" Type="Digital">
+    <Property Name="Invert" Channel="InvertOutput6" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Output>
+  <Output Name="Digital Output 7" Channel="Output7" Desc="Output 7" Type="Digital">
+    <Property Name="Invert" Channel="InvertOutput7" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Output>
+  <Output Name="Digital Output 8" Channel="Output8" Desc="Output 8" Type="Digital">
+    <Property Name="Invert" Channel="InvertOutput8" Desc="0 = Normal | 1 = Inverted (as an initialization value)" Editor="Combo:0=Normal;1=Invert" />
+  </Output>
+  <Output Name="Output Byte" Channel="OutputByte" Desc="In this server the digital outputs are shown in an 8-bit field" Type="Analog"/>
+  <IOState Name="State" Channel="State" Desc="This server shows the status of the hardware class. If the value is greater than 0, an error has occured &#13;&#10; (e.g: The place client is set wrong). For the hardware class to operate error free, this server must show a value of 0." />
+  <IOState Name="VoltageOk Outputs 1-4" Channel="VoltageOkV1" Desc="0 = Voltage &gt; 18V | 1 = Voltage for outputs ok (Outputs 1-4)" />
+  <IOState Name="VoltageOk Outputs 5-8" Channel="VoltageOkV2" Desc="0 = Voltage &gt; 18V | 1 = Voltage for outputs ok (Outputs 5-8)" />
+  <Property Name="Realtime / Cyclic Analog Inputs" Channel="AI_RtCy" Desc="0 = cyclic | 1 = realtime updating (as initvalue)" Editor="Combo:0=Cyclic;1=Realtime" />
+  <Property Name="Realtime / Cyclic Analog Output" Channel="AO_RtCy" Desc="0 = cyclic updating | 1 = realtime updating (as an initialization value)" Editor="Combo:0=Cyclic;1=Realtime" />
+  <Property Name="Counter Mode 1 and 2" Channel="CounterMode1and2" Desc="0 = off | 1 = upcounter on pos edge off each input (results in server 'Counter1' and 'Counter2') | 2 = Enoder (Gating 1 times) (Server 'Encoder') | 3 = Encoder (Gating 4times)" Editor="Combo:0=Off;1=Count Up on positive edge;2=Encoder (singel-edge);3=Encoder (quad-edge)" />
+  <Property Name="Analog mode" Channel="AnalogMode" Desc="Sets the UpdateMode for the analog Inputs (works only for CDIAS)|0 = Every Cycle one Input gets converted by ADC | 1 = All Inputs get converted in on Cycle (takes more time)" Editor="Combo:0=Cyclic;1=Realtime" />
+  <Property Name="Input3 IRQMode" Channel="Input3IRQMode" Desc="Set irq mode (0 = no irq | 1 = pos. edge | 2 = neg. edge | 3 = pos. and neg. edge) (as initvalue)" Editor="Combo:0=No IRQ;1=positive edge;1=negative edge;3=both edges;" />
+  <Property Name="Realtime / Cyclic Digital Inputs" Channel="RtCyInputs" Desc="Realtime(1) or cyclic Work(0)" Editor="Combo:0=Cyclic;1=Realtime" />
+  <Property Name="Realtime / Cyclic Digital Outputs" Channel="RtCyOutputs" Desc="Realtime(1) or cyclic Work(0)" Editor="Combo:0=Cyclic;1=Realtime" />
+  <Property Name="Required" Channel="Required" Editor="Combo:1=Module is required;0=Module is not required" Desc="0=Module is not required &#13;&#10; 1=Module is required (CPU will crash if module is missing)"/>
+  <Property Name="TimeBase" Channel="TimeBase" Type="Analog" Editor="EditNumber:Unsigned;Dec" Desc="Defines the period of time during which the
+   Isochrone Varan data objects are transferred over the bus. This time must be a mutiple of the Varan ManagerTime."/>
+  <Property Name="TimeBaseOffset" Channel="TimeBaseOffset" Type="Analog" Editor="EditNumber:Unsigned;Dec" Desc="Defines the offset within the
+   TimeBase. "/>
+<Script Name="CIO011_IM">
+  <Parameter Name="RtCyInputs" Type="Client" Channel="RtCyInputs" Desc="" />
+  <Parameter Name="RtCyOutputs" Type="Client" Channel="RtCyOutputs" Desc="" />
+  <Parameter Name="AI_RtCy" Type="Client" Channel="AI_RtCy" Desc="" />
+  <Parameter Name="AO_RtCy" Type="Client" Channel="AO_RtCy" Desc="" />
+  <Parameter Name="CounterMode1and2" Type="Client" Channel="CounterMode1and2" Desc="" />
+<Code>
+def compPost_CIO011_IM(element, parameters):
+  if parameters['varanBridge']:
+    if parameters['moverOn']:
+      parameters['AddToMoverTime'] = True
+      #CIV with mover, div+CIC: handover computation to CIV
+      element['result']['optional'] = {'iso': {'Wr':[], 'Rd':[], 'WrEn':[], 'RdEn':[]}, 'asy': {'Wr':[], 'Rd':[], 'WrEn':[], 'RdEn':[]}}
+      if element['options']['RtCyInputs'] or element['options']['RtCyOutputs'] or element['options']['AI_RtCy'] or element['options']['AO_RtCy'] != 0: 
+        CDIASMoverWrIso(1, element)
+        CDIASMoverRdIso(1, element)
+        CDIASMoverRdIso(1, element)
+        CDIASMoverWrIso(1, element)
+        CDIASMoverRdIso(1, element)
+        CDIASMoverRdIso(1, element)
+        CDIASMoverWrIso(1, element)
+        CDIASMoverRdIso(1, element)
+        CDIASMoverRdIso(1, element)
+        CDIASMoverWrIso(2, element)
+      if element['options']['CounterMode1and2'] != 0:
+        CDIASMoverRdIso(2, element)
+        if element['options']['CounterMode1and2'] == 1:
+          CDIASMoverRdIso(2, element)
+      else:
+        CDIASMoverWrAsy(1, element)
+        CDIASMoverRdAsy(1, element)
+        CDIASMoverRdAsy(1, element)
+        CDIASMoverWrAsy(1, element)
+        CDIASMoverRdAsy(1, element)
+        CDIASMoverRdAsy(1, element)
+        CDIASMoverWrAsy(1, element)
+        CDIASMoverRdAsy(1, element)
+        CDIASMoverRdAsy(1, element)
+        CDIASMoverWrAsy(2, element)
+    else:
+    #rdwr kombiniert mit 11 byte rd und 1 byte wr
+    #CIV without mover: Iso/Asy-Time + Memory
+      element['result'] = memVaranRdWrDO(11,1, element, parameters)
+      if parameters['SplitRdWr'] == 0:
+        if element['options']['RtCyInputs'] or element['options']['RtCyOutputs'] or element['options']['AI_RtCy'] or element['options']['AO_RtCy'] or element['options']['CounterMode1and2'] != 0:
+          element['result']['isotime'] += timeVaranRdWrDO(parameters['depth']-1, 11, 1, parameters['cable'], True)
+          element['result']['isotime'] += timeVaranRdDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['isotime'] += timeVaranRdDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['isotime'] += timeVaranRdDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['isotime'] += timeVaranWrDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['isotime'] += timeVaranWrDO(parameters['depth']-1,1,parameters['cable'], True)
+        else:
+          element['result']['asytime'] += timeVaranRdWrDO(parameters['depth']-1, 11,1, parameters['cable'], True)
+          element['result']['asytime'] += timeVaranRdDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['asytime'] += timeVaranRdDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['asytime'] += timeVaranRdDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['asytime'] += timeVaranWrDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['asytime'] += timeVaranWrDO(parameters['depth']-1,1,parameters['cable'], True)
+      else:
+        if element['options']['RtCyInputs'] or element['options']['RtCyOutputs'] or element['options']['AI_RtCy'] or element['options']['AO_RtCy'] or element['options']['CounterMode1and2'] != 0:
+          element['result']['IsoTimeRd'] += timeVaranRdDO(parameters['depth']-1, 11, parameters['cable'], True)
+          element['result']['IsoTimeWr'] += timeVaranWrDO(parameters['depth']-1, 1, parameters['cable'], True)
+          element['result']['IsoTimeRd'] += timeVaranRdDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['IsoTimeRd'] += timeVaranRdDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['IsoTimeRd'] += timeVaranRdDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['IsoTimeWr'] += timeVaranWrDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['IsoTimeWr'] += timeVaranWrDO(parameters['depth']-1,1,parameters['cable'], True)
+        else:
+          element['result']['asyTimeRd'] += timeVaranRdDO(parameters['depth']-1, 11, parameters['cable'], True)
+          element['result']['asyTimeWr'] += timeVaranWrDO(parameters['depth']-1, 1, parameters['cable'], True)
+          element['result']['asyTimeRd'] += timeVaranRdDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['asyTimeRd'] += timeVaranRdDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['asyTimeRd'] += timeVaranRdDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['asyTimeWr'] += timeVaranWrDO(parameters['depth']-1,1,parameters['cable'], True)
+          element['result']['asyTimeWr'] += timeVaranWrDO(parameters['depth']-1,1,parameters['cable'], True) 
+</Code>
+</Script>
+  </Class>
+</HWClassInfo>

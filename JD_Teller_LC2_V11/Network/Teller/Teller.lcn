@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Network Name="Teller" Revision="0.0">
+	<!-- List of Components in this network -->
+	<Components>
+		<Object
+			Name       = "Encoder_Inmeten1"
+			GUID       = "{7B77F0AD-8E77-4ED4-A786-4FFC823C5EB6}"
+			Class      = "Encoder_Inmeten"
+			Position   = "(7590,210)"
+			Visualized = "true">
+			<Channels>
+				<Server Name="ClassSvr"/>
+				<Server Name="EncDiv"/>
+				<Server Name="EncMul"/>
+				<Server Name="ErrorEncDeltaIsNul"/>
+				<Server Name="Lengte_MM"/>
+				<Server Name="Reset"/>
+				<Server Name="StartMeting"/>
+				<Client Name="cEncoder" Value="0"/>
+			</Channels>
+		</Object>
+		<Object
+			Name       = "FileBase1"
+			GUID       = "{FE0DE458-B7A3-467F-81E2-3332E38E107A}"
+			Class      = "FileBase"
+			Position   = "(240,1110)"
+			Visualized = "true">
+			<Channels>
+				<Server Name="Server0"/>
+				<Client Name="FileOs"/>
+				<Client Name="System"/>
+			</Channels>
+		</Object>
+		<Object
+			Name       = "FileBase2"
+			GUID       = "{2BD32F0B-AD00-4D02-AB65-37D876CAF75C}"
+			Class      = "FileBase"
+			Position   = "(5670,390)"
+			Visualized = "true">
+			<Channels>
+				<Server Name="Server0"/>
+				<Client Name="FileOs"/>
+				<Client Name="System"/>
+			</Channels>
+		</Object>
+		<Object
+			Name       = "RAMex3"
+			GUID       = "{1010CD16-2524-44A8-AEA3-AC1704E17D50}"
+			Class      = "RAMex"
+			Position   = "(300,120)"
+			Visualized = "true">
+			<Channels>
+				<Server Name="m_udLength"/>
+				<Client Name="MultiTask"/>
+				<Client Name="ThreadSafe" Value="0"/>
+				<Client Name="UseFile"/>
+			</Channels>
+			<!-- List of Networks in this component -->
+			<Networks>
+				<Network>
+					<!-- List of Components in this network -->
+					<Components>
+						<Object Name="_base" GUID="{69FA3C23-B049-4F83-B4BC-D30F993C8C98}" Class="MerkerEx">
+							<Channels>
+								<Server Name="m_udLength"/>
+								<Client Name="ThreadSafe"/>
+							</Channels>
+						</Object>
+					</Components>
+					<Connections>
+					</Connections>
+				</Network>
+			</Networks>
+		</Object>
+		<Object
+			Name       = "Read_serial1"
+			GUID       = "{F3EA373A-D958-48DB-A1FD-3D4C397A3661}"
+			Class      = "TanabeCounterSerial"
+			Position   = "(6270,210)"
+			Visualized = "false"
+			CyclicTime = "1 ms">
+			<Channels>
+				<Server Name="ClassSvr"/>
+				<Server Name="iActualProduction"/>
+				<Server Name="iBalanceOfProduction"/>
+				<Server Name="iConveyorSpeed"/>
+				<Server Name="iPlannedProduction"/>
+				<Server Name="iProductionSpeed"/>
+				<Server Name="sAangepasteWaarde"/>
+				<Server Name="sBatch"/>
+				<Server Name="sBattingDistance"/>
+				<Server Name="sBattingStart"/>
+				<Server Name="sBoxLength"/>
+				<Server Name="sChangeOfActualQuantity"/>
+				<Server Name="sCheckWrittenData"/>
+				<Server Name="sClearProdData"/>
+				<Server Name="sDateInput"/>
+				<Server Name="sLotNo"/>
+				<Server Name="sOperatorName"/>
+				<Server Name="sProductionQuantity"/>
+				<Server Name="sReadAConditionInProgress"/>
+				<Server Name="sReturnNak"/>
+				<Server Name="sStartingDistanceToConveyor"/>
+				<Server Name="sTimeInput"/>
+				<Server Name="sWriteProductionData"/>
+				<Server Name="verklikker"/>
+				<Server Name="Verzenden"/>
+				<Client Name="cBatch1"/>
+				<Client Name="cBatch2"/>
+				<Client Name="cBattingDistance"/>
+				<Client Name="cBattingStart"/>
+				<Client Name="cBoxLength"/>
+				<Client Name="cCountedBoxes"/>
+				<Client Name="cPlannedProduction"/>
+				<Client Name="cStartingDistanceToConveyorRun"/>
+				<Client Name="FileBase"/>
+				<Client Name="GetInfo" Value="0"/>
+				<Client Name="RxTx"/>
+				<Client Name="String"/>
+			</Channels>
+		</Object>
+		<Object
+			Name       = "SerSend1"
+			GUID       = "{E61A4455-BD4E-47CB-8D11-32A392E59DC6}"
+			Class      = "SerSend"
+			Position   = "(750,900)"
+			Visualized = "true">
+			<Channels>
+				<Server Name="ClassSvr"/>
+				<Server Name="iCounter"/>
+				<Server Name="iCounterPerMin"/>
+				<Server Name="iRemaningproduction"/>
+				<Server Name="iSpeed"/>
+				<Server Name="iTotalproduction"/>
+				<Server Name="Jamdetect"/>
+				<Server Name="Selector"/>
+				<Client Name="fb"/>
+				<Client Name="Ser"/>
+				<Client Name="strSend"/>
+			</Channels>
+			<!-- List of Networks in this component -->
+			<Networks>
+				<Network>
+					<!-- List of Components in this network -->
+					<Components>
+						<Object Name="rSelector" GUID="{C5629653-F99A-4AF1-B86C-0E47DBB7EEC7}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+					</Components>
+					<Connections>
+					</Connections>
+				</Network>
+			</Networks>
+		</Object>
+		<Object
+			Name        = "SIMPULSJE5"
+			GUID        = "{3997C3EB-56A3-48E5-A161-433820B58C9A}"
+			Class       = "SIMPULSJE_Teller"
+			Position    = "(750,360)"
+			Visualized  = "false"
+			RealTime    = "1 ms"
+			CyclicTime  = "10 ms"
+			CyclicIndex = "1073742080">
+			<Channels>
+				<Server Name="ClassSvr"/>
+				<Server Name="SignAaninMs"/>
+				<Server Name="SignUitinMs"/>
+				<Server Name="TaskOnOff"/>
+				<Server Name="Uitgang"/>
+			</Channels>
+		</Object>
+		<Object
+			Name       = "String1"
+			GUID       = "{C2A65745-5D8A-4F86-95BD-3CE3B9616BF5}"
+			Class      = "String"
+			Position   = "(5670,210)"
+			Visualized = "true">
+			<Channels>
+				<Server Name="Data"/>
+				<Client Name="SingleRealloc" Value="1"/>
+			</Channels>
+			<!-- List of Networks in this component -->
+			<Networks>
+				<Network>
+					<!-- List of Components in this network -->
+					<Components>
+						<Object Name="_base" GUID="{B9D2D328-1416-469A-BE13-9F6CBBB1958D}" Class="StringInternal">
+							<Channels>
+								<Server Name="Data"/>
+								<Client Name="DataBuffer"/>
+								<Client Name="SingleRealloc" Value="1"/>
+							</Channels>
+							<!-- List of Networks in this component -->
+							<Networks>
+								<Network>
+									<!-- List of Components in this network -->
+									<Components>
+										<Object Name="_base" GUID="{6CBDDE57-D222-420A-BC45-D2266096244E}" Class="VirtualBaseInit">
+											<Channels>
+												<Server Name="Data"/>
+											</Channels>
+										</Object>
+									</Components>
+									<Connections>
+									</Connections>
+								</Network>
+							</Networks>
+						</Object>
+						<Object Name="MerkerEx0" GUID="{53955FF7-8ABE-4B49-B914-227100C3FDEF}" Class="MerkerEx">
+							<Channels>
+								<Server Name="m_udLength"/>
+								<Client Name="ThreadSafe" Value="0"/>
+							</Channels>
+						</Object>
+					</Components>
+					<Connections>
+					</Connections>
+				</Network>
+			</Networks>
+		</Object>
+		<Object
+			Name       = "String3"
+			GUID       = "{7D1ED410-446E-4576-AF6C-46E580F38523}"
+			Class      = "String"
+			Position   = "(90,1320)"
+			Visualized = "true">
+			<Channels>
+				<Server Name="Data"/>
+				<Client Name="SingleRealloc"/>
+			</Channels>
+			<!-- List of Networks in this component -->
+			<Networks>
+				<Network>
+					<!-- List of Components in this network -->
+					<Components>
+						<Object Name="_base" GUID="{B9D2D328-1416-469A-BE13-9F6CBBB1958D}" Class="StringInternal">
+							<Channels>
+								<Server Name="Data"/>
+								<Client Name="DataBuffer"/>
+								<Client Name="SingleRealloc"/>
+							</Channels>
+							<!-- List of Networks in this component -->
+							<Networks>
+								<Network>
+									<!-- List of Components in this network -->
+									<Components>
+										<Object Name="_base" GUID="{6CBDDE57-D222-420A-BC45-D2266096244E}" Class="VirtualBaseInit">
+											<Channels>
+												<Server Name="Data"/>
+											</Channels>
+										</Object>
+									</Components>
+									<Connections>
+									</Connections>
+								</Network>
+							</Networks>
+						</Object>
+						<Object Name="MerkerEx0" GUID="{53955FF7-8ABE-4B49-B914-227100C3FDEF}" Class="MerkerEx">
+							<Channels>
+								<Server Name="m_udLength"/>
+								<Client Name="ThreadSafe" Value="0"/>
+							</Channels>
+						</Object>
+					</Components>
+					<Connections>
+					</Connections>
+				</Network>
+			</Networks>
+		</Object>
+		<Object
+			Name            = "TellerClass1"
+			GUID            = "{5A4DA5CC-F359-41EE-A290-9B474EA55C4D}"
+			Class           = "TellerClass_Teller"
+			Position        = "(1770,120)"
+			Visualized      = "true"
+			RealTime        = "1 ms"
+			CyclicTime      = "100 ms"
+			BackgroundTime  = "200 ms"
+			RealIndex       = "1073742080"
+			CyclicIndex     = "1073742080"
+			BackgroundIndex = "1073742080">
+			<Channels>
+				<Server Name="ClassSvr"/>
+				<Server Name="i2SenCNT"/>
+				<Server Name="iBoxlengthCNT"/>
+				<Server Name="iBoxlengthCNT_Max"/>
+				<Server Name="iBoxlengthCNT_Min"/>
+				<Server Name="iBoxlengthJamL"/>
+				<Server Name="iBoxlengthJamL_Max"/>
+				<Server Name="iBoxlengthJamL_Min"/>
+				<Server Name="iBoxlengthJamR"/>
+				<Server Name="iBoxlengthJamR_Max"/>
+				<Server Name="iBoxlengthJamR_Min"/>
+				<Server Name="iBoxlengthJamSTR"/>
+				<Server Name="iBoxlengthJamSTR_Max"/>
+				<Server Name="iBoxlengthJamSTR_Min"/>
+				<Server Name="iEncDiv"/>
+				<Server Name="iEncMeetdist"/>
+				<Server Name="iEncMul"/>
+				<Server Name="iEncStapper"/>
+				<Server Name="iJamdetReset"/>
+				<Server Name="iSensorCNT"/>
+				<Server Name="iTotalProduction"/>
+				<Server Name="MinSpot"/>
+				<Server Name="oCounter"/>
+				<Server Name="oCounterPerHour"/>
+				<Server Name="oJamdetL"/>
+				<Server Name="oJamdetR"/>
+				<Server Name="oJamdetSTR"/>
+				<Server Name="oRemainingProduction"/>
+				<Server Name="oSensorHWCNT"/>
+				<Server Name="oSpeed"/>
+				<Server Name="oStopperLSE"/>
+				<Server Name="sAnalogSpeed_Man_Auto"/>
+				<Server Name="sAnalogSpeedEnable"/>
+				<Server Name="sCounter"/>
+				<Server Name="sCounterPerMin"/>
+				<Server Name="sData"/>
+				<Server Name="SExtraBox"/>
+				<Server Name="sFactorAnalogSpeedIn"/>
+				<Server Name="sFactorAnalogSpeedout"/>
+				<Server Name="SimSpeed"/>
+				<Server Name="Simulatie"/>
+				<Server Name="sMaxSpeed"/>
+				<Server Name="sRemainingProduction"/>
+				<Server Name="sTotalProduction"/>
+				<Client Name="c_JamData"/>
+				<Client Name="cAnalogSpeedOut"/>
+				<Client Name="cExtBoxCount" Value="0"/>
+				<Client Name="coCounter"/>
+				<Client Name="coCounterPerMin"/>
+				<Client Name="coRemainingproduction"/>
+				<Client Name="coSpeed"/>
+				<Client Name="coTotalproduction"/>
+				<Client Name="GetDataTanabe"/>
+				<Client Name="iEncoder"/>
+				<Client Name="iSensorL"/>
+				<Client Name="iSensorR"/>
+				<Client Name="iSensorSTR" Value="0"/>
+				<Client Name="iSimPuls"/>
+				<Client Name="ObjTaskObjectControl"/>
+				<Client Name="oHeadnr01"/>
+				<Client Name="oHeadnr02"/>
+				<Client Name="oHeadnr03"/>
+				<Client Name="oHeadnr04"/>
+				<Client Name="oHeadnr05"/>
+				<Client Name="oHeadnr06"/>
+				<Client Name="oHeadnr07"/>
+				<Client Name="oHeadnr08"/>
+				<Client Name="oJam" Value="0"/>
+				<Client Name="RamEx"/>
+			</Channels>
+			<!-- List of Networks in this component -->
+			<Networks>
+				<Network>
+					<!-- List of Components in this network -->
+					<Components>
+						<Object Name="ri2SenCNT" GUID="{6F01F915-5C30-4D2F-AC6D-B3A69D90934B}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="riBoxlengthCNT" GUID="{0E310FFB-8201-469B-92A3-493DB45AD13F}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="riBoxlengthJAML" GUID="{DF6DEAED-22A3-4358-9934-CBCA89075E6A}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="riBoxlengthJAMR" GUID="{9D4F4665-3D76-4930-A42A-93D87AF659E5}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="riBoxlengthJamSTR" GUID="{95173EBF-6451-42D6-8ADC-B3F23CFC623C}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="riEncDiv" GUID="{938C8078-236A-4678-806E-30C6F54CB574}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="riEncMul" GUID="{A0A93B84-1225-4C6F-8B83-C29423F710F6}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="riSensorCNT" GUID="{64CC59DF-FB29-4D95-91CF-ADA8D2E1C3B1}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="riTotalProduction" GUID="{69CE30E7-4D92-4304-853F-B87F64655A6F}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="RMinSpot" GUID="{48F75A04-D02C-4D82-BE2B-E38A343B6C39}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="roCounter" GUID="{E4946E7B-9635-4133-934C-8D2CE3D57CF6}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="rsAnalogSpeedEnable" GUID="{49A6ED02-B56D-415D-9B1A-3C04CE12CA18}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="rSextraBox" GUID="{D7BE89C8-3A7D-49CF-AD52-75EE30EEEBE5}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="rsFactorAnalogSpeedIn" GUID="{57B6EFAD-7EB6-4A0E-8E48-9E705BBFADFD}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+						<Object Name="rsMaxSpeed" GUID="{03E3B597-A708-494C-8EEF-F2C03B39393C}" Class="Ram">
+							<Channels>
+								<Server Name="Data"/>
+							</Channels>
+						</Object>
+					</Components>
+					<Connections>
+					</Connections>
+				</Network>
+			</Networks>
+		</Object>
+		<Object
+			Name            = "VisuTeller1"
+			GUID            = "{111CE5FA-80D5-43D9-AA46-4FC014C8B360}"
+			Class           = "VisuTeller_Teller"
+			Position        = "(2490,210)"
+			Visualized      = "true"
+			BackgroundTime  = "200 ms"
+			BackgroundIndex = "1073742080">
+			<Channels>
+				<Server Name="Classserver"/>
+				<Server Name="i2SenCnt"/>
+				<Server Name="iBoxlengte"/>
+				<Server Name="iBoxLengte_Max"/>
+				<Server Name="iBoxLengte_Min"/>
+				<Server Name="iHeadnr"/>
+				<Server Name="iKopAfvalinMs"/>
+				<Server Name="iKopOffsetL"/>
+				<Server Name="iKopOffsetR"/>
+				<Server Name="iKopOffsetSTR"/>
+				<Server Name="iKopOpkominMs"/>
+				<Server Name="iLengte"/>
+				<Server Name="iLengte_Max"/>
+				<Server Name="iLengte_Min"/>
+				<Server Name="iMinSpeed"/>
+				<Server Name="iOnOff"/>
+				<Server Name="iPakket1"/>
+				<Server Name="iPakket1SET"/>
+				<Server Name="iPakket2"/>
+				<Server Name="iPakket2SET"/>
+				<Server Name="iSensor"/>
+				<Server Name="iStart"/>
+				<Server Name="iStart_Max"/>
+				<Server Name="iStart_Min"/>
+				<Server Name="iTest"/>
+				<Server Name="iType"/>
+				<Server Name="oError"/>
+				<Server Name="oOutputHW"/>
+				<Server Name="oSensorHW"/>
+				<Server Name="Present"/>
+				<Client Name="cData"/>
+				<Client Name="cHeadNr" Value="1"/>
+				<Client Name="cType" Value="4"/>
+			</Channels>
+		</Object>
+		<Object
+			Name            = "VisuTeller2"
+			GUID            = "{387B9D08-653C-4BF0-AE17-65883817F362}"
+			Class           = "VisuTeller_Teller"
+			Position        = "(3090,210)"
+			Visualized      = "true"
+			BackgroundTime  = "200 ms"
+			BackgroundIndex = "1073742080">
+			<Channels>
+				<Server Name="Classserver"/>
+				<Server Name="i2SenCnt"/>
+				<Server Name="iBoxlengte"/>
+				<Server Name="iBoxLengte_Max"/>
+				<Server Name="iBoxLengte_Min"/>
+				<Server Name="iHeadnr"/>
+				<Server Name="iKopAfvalinMs"/>
+				<Server Name="iKopOffsetL"/>
+				<Server Name="iKopOffsetR"/>
+				<Server Name="iKopOffsetSTR"/>
+				<Server Name="iKopOpkominMs"/>
+				<Server Name="iLengte"/>
+				<Server Name="iLengte_Max"/>
+				<Server Name="iLengte_Min"/>
+				<Server Name="iMinSpeed"/>
+				<Server Name="iOnOff"/>
+				<Server Name="iPakket1"/>
+				<Server Name="iPakket1SET"/>
+				<Server Name="iPakket2"/>
+				<Server Name="iPakket2SET"/>
+				<Server Name="iSensor"/>
+				<Server Name="iStart"/>
+				<Server Name="iStart_Max"/>
+				<Server Name="iStart_Min"/>
+				<Server Name="iTest"/>
+				<Server Name="iType"/>
+				<Server Name="oError"/>
+				<Server Name="oOutputHW"/>
+				<Server Name="oSensorHW"/>
+				<Server Name="Present"/>
+				<Client Name="cData"/>
+				<Client Name="cHeadNr" Value="2"/>
+				<Client Name="cType" Value="3"/>
+			</Channels>
+		</Object>
+		<Object
+			Name            = "VisuTeller3"
+			GUID            = "{F23100BB-1BF0-42D5-BC09-2C6C2FF2B259}"
+			Class           = "VisuTeller_Teller"
+			Position        = "(3690,210)"
+			Visualized      = "true"
+			BackgroundTime  = "200 ms"
+			BackgroundIndex = "1073742080">
+			<Channels>
+				<Server Name="Classserver"/>
+				<Server Name="i2SenCnt"/>
+				<Server Name="iBoxlengte"/>
+				<Server Name="iBoxLengte_Max"/>
+				<Server Name="iBoxLengte_Min"/>
+				<Server Name="iHeadnr"/>
+				<Server Name="iKopAfvalinMs"/>
+				<Server Name="iKopOffsetL"/>
+				<Server Name="iKopOffsetR"/>
+				<Server Name="iKopOffsetSTR"/>
+				<Server Name="iKopOpkominMs"/>
+				<Server Name="iLengte"/>
+				<Server Name="iLengte_Max"/>
+				<Server Name="iLengte_Min"/>
+				<Server Name="iMinSpeed"/>
+				<Server Name="iOnOff"/>
+				<Server Name="iPakket1"/>
+				<Server Name="iPakket1SET"/>
+				<Server Name="iPakket2"/>
+				<Server Name="iPakket2SET"/>
+				<Server Name="iSensor"/>
+				<Server Name="iStart"/>
+				<Server Name="iStart_Max"/>
+				<Server Name="iStart_Min"/>
+				<Server Name="iTest"/>
+				<Server Name="iType"/>
+				<Server Name="oError"/>
+				<Server Name="oOutputHW"/>
+				<Server Name="oSensorHW"/>
+				<Server Name="Present"/>
+				<Client Name="cData"/>
+				<Client Name="cHeadNr" Value="3"/>
+				<Client Name="cType" Value="1"/>
+			</Channels>
+		</Object>
+		<Object
+			Name            = "VisuTeller4"
+			GUID            = "{E23A0968-A70C-4B3F-9B9B-4FC0FE769176}"
+			Class           = "VisuTeller_Teller"
+			Position        = "(4290,210)"
+			Visualized      = "true"
+			BackgroundTime  = "200 ms"
+			BackgroundIndex = "1073742080">
+			<Channels>
+				<Server Name="Classserver"/>
+				<Server Name="i2SenCnt"/>
+				<Server Name="iBoxlengte"/>
+				<Server Name="iBoxLengte_Max"/>
+				<Server Name="iBoxLengte_Min"/>
+				<Server Name="iHeadnr"/>
+				<Server Name="iKopAfvalinMs"/>
+				<Server Name="iKopOffsetL"/>
+				<Server Name="iKopOffsetR"/>
+				<Server Name="iKopOffsetSTR"/>
+				<Server Name="iKopOpkominMs"/>
+				<Server Name="iLengte"/>
+				<Server Name="iLengte_Max"/>
+				<Server Name="iLengte_Min"/>
+				<Server Name="iMinSpeed"/>
+				<Server Name="iOnOff"/>
+				<Server Name="iPakket1"/>
+				<Server Name="iPakket1SET"/>
+				<Server Name="iPakket2"/>
+				<Server Name="iPakket2SET"/>
+				<Server Name="iSensor"/>
+				<Server Name="iStart"/>
+				<Server Name="iStart_Max"/>
+				<Server Name="iStart_Min"/>
+				<Server Name="iTest"/>
+				<Server Name="iType"/>
+				<Server Name="oError"/>
+				<Server Name="oOutputHW"/>
+				<Server Name="oSensorHW"/>
+				<Server Name="Present"/>
+				<Client Name="cData"/>
+				<Client Name="cHeadNr" Value="4"/>
+				<Client Name="cType" Value="5"/>
+			</Channels>
+		</Object>
+		<Object
+			Name            = "VisuTeller5"
+			GUID            = "{68BB43A7-4B79-420B-86EC-62AE43EA052F}"
+			Class           = "VisuTeller_Teller"
+			Position        = "(4890,210)"
+			Visualized      = "true"
+			BackgroundTime  = "200 ms"
+			BackgroundIndex = "1073742080">
+			<Channels>
+				<Server Name="Classserver"/>
+				<Server Name="i2SenCnt"/>
+				<Server Name="iBoxlengte"/>
+				<Server Name="iBoxLengte_Max"/>
+				<Server Name="iBoxLengte_Min"/>
+				<Server Name="iHeadnr"/>
+				<Server Name="iKopAfvalinMs"/>
+				<Server Name="iKopOffsetL"/>
+				<Server Name="iKopOffsetR"/>
+				<Server Name="iKopOffsetSTR"/>
+				<Server Name="iKopOpkominMs"/>
+				<Server Name="iLengte"/>
+				<Server Name="iLengte_Max"/>
+				<Server Name="iLengte_Min"/>
+				<Server Name="iMinSpeed"/>
+				<Server Name="iOnOff"/>
+				<Server Name="iPakket1"/>
+				<Server Name="iPakket1SET"/>
+				<Server Name="iPakket2"/>
+				<Server Name="iPakket2SET"/>
+				<Server Name="iSensor"/>
+				<Server Name="iStart"/>
+				<Server Name="iStart_Max"/>
+				<Server Name="iStart_Min"/>
+				<Server Name="iTest"/>
+				<Server Name="iType"/>
+				<Server Name="oError"/>
+				<Server Name="oOutputHW"/>
+				<Server Name="oSensorHW"/>
+				<Server Name="Present"/>
+				<Client Name="cData"/>
+				<Client Name="cHeadNr" Value="5"/>
+				<Client Name="cType" Value="2"/>
+			</Channels>
+		</Object>
+	</Components>
+	<Comments>
+		<Comment Position="(1230,390)" Size="(240,480)" Text="H1 LSU&#13;&#10;H2 Conveyor&#13;&#10;H3 Kicker&#13;&#10;H4 Straighter&#13;&#10;H5 Sprayer&#13;&#10;H6 Backpusher&#13;&#10;H7&#13;&#10;H8"/>
+	</Comments>
+	<!-- List of Connections in this network -->
+	<Connections>
+		<Connection Source="VisuTeller1.cData" Destination="TellerClass1.sData" Vertices="(2490,300),(2460,300),(2400,300),(2400,270),(2400,2010),(2356,2010),"/>
+		<Connection Source="VisuTeller2.cData" Destination="TellerClass1.sData" Vertices="(3090,300),(3060,300),(3060,150),(2400,150),(2400,2010),(2356,2010),"/>
+		<Connection Source="TellerClass1.RamEx" Destination="RAMex3.m_udLength" Vertices="(1770,990),(1230,990),(1230,210),(600,210),"/>
+		<Connection Source="VisuTeller3.cData" Destination="TellerClass1.sData" Vertices="(3690,300),(3660,300),(3660,150),(2400,150),(2400,2010),(2356,2010),"/>
+		<Connection Source="VisuTeller4.cData" Destination="TellerClass1.sData" Vertices="(4290,300),(4260,300),(4260,150),(2400,150),(2400,2010),(2356,2010),"/>
+		<Connection Source="VisuTeller5.cData" Destination="TellerClass1.sData" Vertices="(4890,300),(4860,300),(4860,150),(2400,150),(2400,2010),(2356,2010),"/>
+		<Connection Source="TellerClass1.iEncoder" Destination="CIO011_IM1.Encoder"/>
+		<Connection Source="TellerClass1.iSensorSTR" Destination="CIO011_IM1.Input3"/>
+		<Connection Source="TellerClass1.iSensorL" Destination="CIO011_IM1.Input4"/>
+		<Connection Source="TellerClass1.iSensorR" Destination="CIO011_IM1.Input5"/>
+		<Connection Source="TellerClass1.oHeadnr04" Destination="CIO011_IM1.Output1"/>
+		<Connection Source="TellerClass1.oHeadnr03" Destination="CIO011_IM1.Output2"/>
+		<Connection Source="TellerClass1.oHeadnr05" Destination="CIO011_IM1.Output3"/>
+		<Connection Source="SerSend1.Ser" Destination="CIV5211.Com1"/>
+		<Connection Source="SerSend1.fb" Destination="FileBase1.Server0" Vertices="(750,1050),(600,1050),(600,1200),(540,1200),"/>
+		<Connection Source="SerSend1.strSend" Destination="String3.Data" Vertices="(750,1110),(660,1110),(660,1410),(406,1410),"/>
+		<Connection Source="TellerClass1.coTotalproduction" Destination="SerSend1.iTotalproduction" Vertices="(1770,1110),(1050,1110),"/>
+		<Connection Source="TellerClass1.coCounter" Destination="SerSend1.iCounter" Vertices="(1770,1170),(1050,1170),"/>
+		<Connection Source="TellerClass1.coRemainingproduction" Destination="SerSend1.iRemaningproduction" Vertices="(1770,1230),(1050,1230),"/>
+		<Connection Source="TellerClass1.coCounterPerMin" Destination="SerSend1.iCounterPerMin" Vertices="(1770,1290),(1050,1290),"/>
+		<Connection Source="TellerClass1.coSpeed" Destination="SerSend1.iSpeed" Vertices="(1770,1350),(1050,1350),"/>
+		<Connection Source="TellerClass1.iSimPuls" Destination="SIMPULSJE5.Uitgang" Vertices="(1770,1050),(1170,1050),(1170,570),(1050,570),"/>
+		<Connection Source="TellerClass1.oHeadnr01" Destination="CIO011_IM1.Output4"/>
+		<Connection Source="TellerClass1.oHeadnr02" Destination="CIO011_IM1.Output5"/>
+		<Connection Source="TellerClass1.c_JamData" Destination="S11_RAM_Jamdetection_TeachIn_01.m_udLength"/>
+		<Connection Source="Encoder_Inmeten1.cEncoder" Destination="CIO011_IM1.Encoder"/>
+		<Connection Source="Read_serial1.RxTx" Destination="CIV5211.Com2"/>
+		<Connection Source="Read_serial1.String" Destination="String1.Data" Vertices="(6270,420),(6060,420),(6060,300),(5986,300),"/>
+		<Connection Source="Read_serial1.FileBase" Destination="FileBase2.Server0" Vertices="(6270,480),(6060,480),(6060,480),(5970,480),"/>
+		<Connection Source="Read_serial1.GetInfo" Destination="TellerClass1.ClassSvr" Vertices="(6270,300),(6240,300),(6240,120),(2370,120),(2370,210),(2356,210),"/>
+		<Connection Source="Read_serial1.cBattingStart" Destination="VisuTeller3.iStart" Vertices="(6270,660),(6060,660),(6060,2160),(4260,2160),(4260,1320),(4192,1320),"/>
+		<Connection Source="Read_serial1.cBattingDistance" Destination="VisuTeller3.iLengte" Vertices="(6270,720),(6060,720),(6060,2160),(4260,2160),(4260,1380),(4192,1380),"/>
+		<Connection Source="Read_serial1.cStartingDistanceToConveyorRun" Destination="VisuTeller2.iLengte" Vertices="(6270,900),(6060,900),(6060,2160),(3660,2160),(3660,1380),(3592,1380),"/>
+		<Connection Source="Read_serial1.cBoxLength" Destination="TellerClass1.iBoxlengthCNT" Vertices="(6270,600),(6060,600),(6060,2160),(2430,2160),(2430,990),(2356,990),"/>
+		<Connection Source="Read_serial1.cBatch1" Destination="VisuTeller3.iPakket1SET" Vertices="(6270,780),(6060,780),(6060,2160),(4260,2160),(4260,1500),(4192,1500),"/>
+		<Connection Source="Read_serial1.cPlannedProduction" Destination="TellerClass1.iTotalProduction" Vertices="(6270,540),(6060,540),(6060,2160),(2430,2160),(2430,1050),(2356,1050),"/>
+		<Connection Source="Read_serial1.cBatch2" Destination="VisuTeller3.iPakket2SET" Vertices="(6270,840),(6060,840),(6060,2160),(4260,2160),(4260,1620),(4192,1620),"/>
+		<Connection Source="Read_serial1.cCountedBoxes" Destination="TellerClass1.oCounter" Vertices="(6270,960),(6060,960),(6060,2160),(2430,2160),(2430,1170),(2356,1170),"/>
+		<Connection Source="TellerClass1.cAnalogSpeedOut" Destination="CIO011_IM1.AO"/>
+		<Connection Source="TellerClass1.cExtBoxCount" Destination="CIO011_IM1.Output7"/>
+	</Connections>
+	<!-- Headerfiles -->
+	<Options>
+	</Options>
+</Network>

@@ -1,0 +1,154 @@
+<?xml version="1.0" ?>
+<HWClassInfo>
+<HWDevice 
+	ModuleID="1050" 
+	SubModuleID="0" 
+	Revision="1.4" 
+	ModType="VARAN" 
+	Desc="VARAN-CDIAS Bus Interface, 1 x Varan Out, 1 x IP">	
+	<Types>
+		<Device Name="CIV521" ClassName="CIV521" DisplayGroup="Extension Modules;CDIAS Bus"/>
+	</Types>
+</HWDevice>
+<Class Name="CIV521" Path="ExtensionModules">
+  <Uplink Name="VaranIn" BusType="VARAN" TransparentClient="Transparent"/>
+  <Property Name="Required" Channel="Required" Editor="Combo:0=Not Required;1=Required" />
+  <Property Name = "SerNoValidation" Channel = "SerNoValidation" Type="Digital" Desc = "This server shows the actual state of the respective digital input.&#13;&#10;&#13;&#10;0 .. input is inactive&#13;&#10;1 .. input is active" Editor="Combo:0=Serial number of varan client does not matter; 1=Serial number of varan client has to be validated, to use the module"/>
+  <Property Name = "Transparent" Channel = "Transparent" Desc = "0=Object is used as VARAN client, 1=Object is not used as VARAN client" Editor = "Combo:0=Object is used as VARAN client;1=Object is not used as VARAN client"/>
+  <Property Name="Pll_Prescaler" Channel="Pll_Prescaler" Type="Analog" Desc="Prescaler of varan time for ISO x can objects &#13;&#10; (0,1=sending objects in varan time 2, 3 = sending in varan time multiplied by 3,....)" Editor="EditNumber:Signed;Dec" />
+  <Property Name="CallUserRt" Channel="CallUserRt" Type="Analog" Desc="Connected server is called before Tx Data is written to varan" Editor="EditNumber:Signed;Dec" />
+  <Property Name="ISOCanOn" Channel="ISOCanOn" Type="Analog" Desc="0=ISO can off (no varan DOs are needed) &#13;&#10; 1=ISO can on" Editor="EditNumber:Signed;Dec" />
+  <Property Name="Mover Active" Channel="MoverActive" Type="Analog" Editor="Combo:0=Off;1=On" Desc="Set init-value to deactivate/activate mover usage &#13;&#10; 0...Communication without mover (more busload but faster reaction of single modules) &#13;&#10; 1...Communication with mover (less busload but slower reaction of single modules, because civ manages communication of connected modules)"/>
+  
+  
+  <IOState Name="State" Channel="State" Desc="" Editor="Combo:0=Class Ok;1=Not Initialized;2=Callback Error;3=Required Error;4=Root Error;5=No Hardware;6=Wrong Hardware;7=Create DO Failed;8=Direct Access Failed;9=PLL Error;10=Timeout in Init;11=Hardware required IRQ;12=Hardware not required IRQ;13=Hardware fatal Error IRQ;14=Manager Error;15=Disable Error;16=Enable Error;17=Multiple Error;18=SPI Error;19=Error Boot Image FPGA;20=No CDIAS Interface;21=EEProm Error;22=No Varan Interface;23=Memory Fault;24=Timeslice Error;25=Timeslice Error IRQ;26=Watchdog Error;27=Varan Time Error;28=Dias Time Error;29=DO Ram Full;30=Port no Link;31=Varan Driver does not exist;32=Wrong DOL Type;33=Wrong Run Status;34=DO Handle invalid;35=DO Command Invalid;36=Manager does not exist;37=DOL Adress invalid;38=Unknown Command;39=Component does not exist;40=Client does not exist;41=CDIAS EEProm does not exist;42=CDIAS EEPROM no Grant;43=CDIAS EEProm no ACK;44=Port does not exist;45=Port is Uplink;46=No Mutex;47=No Task;48=ID not found;49=ID not initialized;50=Invalid Device Address;51=Callback not handled;52=No Memory;53=No Legacy Word;54=Admin DOL Execution rror;55=DADOL Execution Error;56=SPI Flasch no Access;57=Client not ready;58=Timeout Varan;59=Unknown Fault;60=Dias Error;61=Device Error;62=Varan Time Warning;63=Only ASY Supported" />
+  <IOState Name="Online" Channel="Online" Editor="Combo:0=Error;1=Ok" EditorColor=
+   "0=B(255,0,0);0=T(255,255,255)" Desc="Is class online or not"/>
+  <Input Name = "Release" Channel = "Release" Type = "Analog" Desc = "FPGA - Version"/>
+  <Input Name = "DeviceAddress" Channel = "DeviceAddress" Type = "Analog" Des = "Device address of hardware module"/>
+  <Input Name = "VendorID" Channel = "VendorID" Type = "Analog" Desc = "This server contains the vendor ID of the hardware module."/>
+  <Input Name = "DeviceID" Channel = "DeviceID" Type = "Analog" Desc = "This server shows the device ID  of the hardware module"/>
+  <Input Name = "SerialNo" Channel = "SerialNo" Type = "Analog" Desc = "Use this channel to access the string functions"/>
+  <IOState Name = "RetryCounter" Channel = "RetryCounter" Type = "Analog" Desc = "Retry counter of varan module"/>
+  <IOState Name = "ValidateSerNo" Channel = "ValidateSerNo" Type = "Analog" Desc = "If the validation of the serial number is activated (SerNoValidation = 1) &#13;&#10; The serial number of the actual module can be validated by writing to this server &#13;&#10;&#13;&#10; this server shows also the state of validation; &#13;&#10; -2, validation not activated &#13;&#10; -1.. no module validated on this position &#13;&#10; 0...module is not the validated one &#13;&#10; 1.. module is the validated one"/>
+  <Downlink Name="CDIAS" BusType="CDIAS" Type="Analog" Desc="All CDIAS hardware classes used must be connected to this server."/>
+  <Downlink Name="DIAS" BusType="DIAS" Type="Analog" Desc="All DIAS hardware classes used must be connected to this server"/>
+  <IOState Name="DIASRetryCounter" Channel="DIASRetryCounter" Type="Analog" Desc="Shows the numbe of retrys on the diasbus"/>
+  <IOState Name="DiasErrorPlace" Channel="DiasErrorPlace" Type="Analog" Desc="Shows the place of the module, where the Diaserror occured."/>
+  <Output Name="Can_Enabled" Channel="Can_Enabled" Type="Analog" Desc="With this server, the CAN controller can be enabled or disabled over the ISO CAN interface &#13;&#10; 0:Disable CAN controller, 1:Enable CAN controller" Editor="Combo:0=Disable CAN controller;1=Enable CAN controller" />
+  <Input Name="CanError" Channel="CanError" Type="Analog" Desc="This server increments when a Can handler error occurs"/>
+  <Input Name="CanIsoError" Channel="CanIsoError" Type="Analog" Desc="This error counter increments when the isochronous CAN Tx objects could not be sent in the defined time."/>
+  <Interface Name="CanStdInterfaceISO" Channel="CanStdInterfaceISO" Type="CAN" />
+  <Interface Name="CanInterfaceOS" Channel="CanInterfaceOS" Type="CAN" />
+  <Interface Name="Serial (RS422/RS485) Interface" Channel="Com1"  Type="Serial" />
+  <Interface Name="Serial (RS232) Interface" Channel="Com2"  Type="Serial" />
+  <Interface Name="Serial (TTY) Interface" Channel="Com3"  Type="Serial" />
+  <Downlink Name="VaranOut_1" BusType="VARAN" Port="0"/>
+  <Property Name="TimeBase" Channel="TimeBase" Type="Analog" Editor="EditNumber:Unsigned;Dec" Desc="Defines the period of time during which the
+   Isochrone Varan data objects are transferred over the bus. This time must be a mutiple of the Varan ManagerTime."/>
+  <Property Name="TimeBaseOffset" Channel="TimeBaseOffset" Type="Analog" Editor="EditNumber:Unsigned;Dec" Desc="Defines the offset within the
+   TimeBase. "/>
+
+<Script Name="CIV521">
+  <Parameter Name="MoverOn" Type="Client" Channel="MoverActive" Desc="" />
+  <Parameter Name="Transparent" Type="Client" Channel="Transparent" Desc="" />
+  <Parameter Name="CableLength" Type="Variable" Channel="CableLength" Desc="Length of cable connected to &quot;VARAN In&quot; [m]&#13;&#10;Default length 1m" Editor="Range:0..100" DefValue="1" />
+<Code>
+def compPre_CIV521(element, parameters):
+  if element['options']['MoverOn'] != 0.0:
+    parameters['moverOn'] = True
+  else:
+    parameters['moverOn'] = False
+  element['result']['optional'] = []
+  
+def compPost_CIV521(element, parameters):
+  def combineObjects(simpleObjects):
+    combinedObjects = []
+    if operator.gt(len(simpleObjects), 0):
+      combinedObjects += [0]
+    simpleObjects.sort() #Worst possible case: we first get ALL the small values and then go to big ones
+    simpleObjects.reverse()
+    for entry in simpleObjects:
+      for index, DO in enumerate(combinedObjects):
+        if operator.le((DO + entry), 128):
+          combinedObjects[index] += entry
+          entry = 0
+          break
+      if entry != 0:
+        combinedObjects += [entry]
+    return combinedObjects
+
+  def computeSimpleObjects(input):
+    output = {'Rd':[],'Wr':[]}
+    for dataobjects in input:
+      if dataobjects.has_key('Rd'):
+        output['Rd'] += dataobjects['Rd']
+      if dataobjects.has_key('Wr'):
+        output['Wr'] += dataobjects['Wr']
+    return output
+
+  if element['options']['MoverOn'] != 0.0:
+    if parameters['SplitRdWr'] == 0:
+      element['result']['asytime'] += timeVaranRdDO(parameters['depth'], 16, parameters['cable'])
+      element['result']['isotime'] += timeVaranRdDO(parameters['depth'], 4, parameters['cable'])
+    else:
+      element['result']['asyTimeRd'] += timeVaranRdDO(parameters['depth'], 16, parameters['cable'])
+      element['result']['IsoTimeRd'] += timeVaranRdDO(parameters['depth'], 4, parameters['cable'])
+    element['result'] = memVaranRdDO(16, element, parameters)
+    element['result'] = memVaranRdDO(4, element, parameters)
+
+    subelements = {'iso':[],'asy':[]}
+    
+    for object in element['result']['optional']:
+      for key in subelements.keys():
+        if object.has_key(key):
+          subelements[key].append(object[key])
+    
+    isoList = computeSimpleObjects(subelements['iso'])
+    asyList = computeSimpleObjects(subelements['asy'])
+    
+    dataobjects = {}
+    dataobjects['IsoRd'] = combineObjects(isoList['Rd'])
+    dataobjects['IsoWr'] = combineObjects(isoList['Wr'])
+    dataobjects['AsyRd'] = combineObjects(asyList['Rd'])
+    dataobjects['AsyWr'] = combineObjects(asyList['Wr'])
+    if parameters['SplitRdWr'] == 0:
+      for DO in dataobjects['IsoRd']:
+        element['result']['isotime'] += timeVaranRdDO(parameters['depth'], DO, parameters['cable'])
+        element['result'] = memVaranRdDO(DO, element, parameters)
+      for DO in dataobjects['IsoWr']:
+        element['result']['isotime'] += timeVaranWrDO(parameters['depth'], DO, parameters['cable'])
+        element['result'] = memVaranRdDO(DO, element, parameters)
+      for DO in dataobjects['AsyRd']:
+        element['result']['asytime'] += timeVaranRdDO(parameters['depth'], DO, parameters['cable'])
+        element['result']= memVaranRdDO(DO, element, parameters)
+      for DO in dataobjects['AsyWr']:
+        element['result']['asytime'] += timeVaranWrDO(parameters['depth'], DO, parameters['cable'])
+        element['result']  =  memVaranRdDO(DO, element, parameters)
+    else:
+      for DO in dataobjects['IsoRd']:
+        element['result']['IsoTimeRd'] += timeVaranRdDO(parameters['depth'], DO, parameters['cable'])
+        element['result'] = memVaranRdDO(DO, element, parameters)
+      for DO in dataobjects['IsoWr']:
+        element['result']['IsoTimeWr'] += timeVaranWrDO(parameters['depth'], DO, parameters['cable'])
+        element['result'] = memVaranRdDO(DO, element, parameters)
+      for DO in dataobjects['AsyRd']:
+        element['result']['asyTimeRd'] += timeVaranRdDO(parameters['depth'], DO, parameters['cable'])
+        element['result'] = memVaranRdDO(DO, element, parameters)
+      for DO in dataobjects['AsyWr']:
+        element['result']['asyTimeWr'] += timeVaranWrDO(parameters['depth'], DO, parameters['cable'])
+        element['result']  =  memVaranRdDO(DO, element, parameters)
+    if parameters['PayloadFrame'] != 0:
+        print "This is the value of element['result']['MemPayloadHead'] = %s" % element['result']['MemPayloadHead']
+        print "This is the value of element['result']['MemPayloadRd'] = %s" % element['result']['MemPayloadRd']
+        print "This is the value of element['result']['MemPayloadWr'] = %s" % element['result']['MemPayloadWr']
+    else:
+        print "This is the value of element['result']['memory'] = %s" % element['result']['memory']
+
+  del element['result']['optional']
+  parameters['moverOn'] = False
+  #print compPost_CIV521(element, parameters)(simpleObjects)
+</Code>
+</Script>  
+</Class>
+</HWClassInfo>
